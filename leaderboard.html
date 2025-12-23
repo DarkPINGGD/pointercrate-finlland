@@ -10,24 +10,27 @@
 <h1>Leaderboard</h1>
 
 <table id="board">
-<tr><th>Player</th><th>Country</th><th>Points</th></tr>
+<tr><th>#</th><th>Player</th><th>Country</th><th>Points</th></tr>
 </table>
 
 <script>
 fetch("/api/list")
 .then(r=>r.json())
 .then(data=>{
-  const map = {};
+  const map={};
+
   data.records.filter(r=>r.approved).forEach(r=>{
-    if(!map[r.player]) map[r.player]={points:0,country:r.country};
-    map[r.player].points += r.points;
+    if(!map[r.player])
+      map[r.player]={points:0,country:r.country};
+    map[r.player].points+=r.points;
   });
 
   Object.entries(map)
   .sort((a,b)=>b[1].points-a[1].points)
-  .forEach(p=>{
-    board.innerHTML += `
+  .forEach((p,i)=>{
+    board.innerHTML+=`
       <tr>
+        <td>${i+1}</td>
         <td><a href="player.html?name=${p[0]}">${p[0]}</a></td>
         <td>${p[1].country}</td>
         <td>${p[1].points}</td>
@@ -37,4 +40,3 @@ fetch("/api/list")
 </script>
 </body>
 </html>
-
