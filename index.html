@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Extreme Demon List</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Extreme Demon List</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>Extreme Demon List</header>
+<h1>Extreme Demon List</h1>
 
 <table id="list">
-  <tr>
-    <th>Rank</th>
-    <th>Level</th>
-    <th>Creator</th>
-    <th>Points</th>
-  </tr>
+<tr><th>Rank</th><th>Level</th><th>Points</th></tr>
 </table>
 
-<section style="width:92%;margin:auto">
-  <h2>Submit Record (100%)</h2>
-  <input id="player" placeholder="Player name">
-  <input id="level" placeholder="Exact level name">
-  <br>
-  <button onclick="submit()">Submit</button>
-</section>
+<a href="submit.html">Submit Record</a> |
+<a href="leaderboard.html">Leaderboard</a>
 
-<script src="script.js"></script>
+<script>
+fetch("/api/list")
+.then(r=>r.json())
+.then(data=>{
+  data.levels.filter(l=>!l.archived).forEach(l=>{
+    list.innerHTML += `
+      <tr>
+        <td>#${l.rank}</td>
+        <td>${l.name}</td>
+        <td>${l.points}</td>
+      </tr>`;
+  });
+});
+</script>
 </body>
 </html>
