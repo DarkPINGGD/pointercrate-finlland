@@ -1,0 +1,50 @@
+body {
+  background: #0a0a0a;
+  color: #eaeaea;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+header {
+  background: #111;
+  border-bottom: 3px solid cyan;
+  padding: 15px;
+  font-size: 28px;
+  text-align: center;
+}
+
+table {
+  width: 92%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th {
+  color: cyan;
+  font-size: 15px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.rank1 { color: gold; }
+.rank2 { color: silver; }
+.rank3 { color: #cd7f32; }
+
+button {
+  background: cyan;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+input {
+  padding: 6px;
+  margin: 4px;
+  background: #111;
+  color: white;
+  border: 1px solid #333;
+}
