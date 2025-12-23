@@ -1,31 +1,26 @@
 import fs from "fs";
 import path from "path";
 
-export default function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).end();
-  }
+export default function(req,res){
+  const file = path.join(process.cwd(),"data/data.json");
+  const data = JSON.parse(fs.readFileSync(file));
 
-  const filePath = path.join(process.cwd(), "data/data.json");
-  const data = JSON.parse(fs.readFileSync(filePath));
+  const lvl = data.levels.find(l=>l.name===req.body.level);
+  if(!lvl) return res.status(400).end();
 
-  const { player, level } = req.body;
-
-  const lvl = data.levels.find(l => l.name === level);
-  if (!lvl) {
-    return res.status(400).json({ error: "Level not found" });
-  }
-
-  // Pointercrate benzeri puan formülü
-  const points = Math.max(5, Math.round(100 - (lvl.rank - 1) * 1.3));
+  const dup = data.records.find(r=>r.player===req.body.player && r.level===req.body.level);
+  if(dup) return res.status(400).end();
 
   data.records.push({
-    player,
-    level,
-    points,
-    approved: false
+    player:req.body.player,
+    country:req.body.country,
+    level:lvl.name,
+    points:lvl.points,
+    video:req.body.video,
+    approved:false,
+    date:new Date().toISOString().split("T")[0]
   });
 
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-  res.status(200).json({ success: true });
+  fs.writeFileSync(file,JSON.stringify(data,null,2));
+  res.end();
 }
