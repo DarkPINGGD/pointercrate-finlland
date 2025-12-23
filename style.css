@@ -70,3 +70,54 @@ nav a{
   margin-right:10px;
   font-size:13px;
 }
+/* ===== POINTERCRATE TIP ===== */
+
+.pc-wrapper{
+  width:900px;              /* DAR */
+  margin:20px auto;
+}
+
+/* BAŞLIKLAR */
+h1{
+  font-size:22px;
+  font-weight:normal;
+  margin:10px 0 15px 0;
+}
+
+h2{
+  font-size:16px;
+  font-weight:normal;
+  margin:10px 0;
+}
+
+/* NAV – SADE LINK SATIRI */
+nav{
+  background:none;
+  border:none;
+  padding:0;
+  margin-bottom:10px;
+}
+
+nav a{
+  font-size:13px;
+  margin-right:12px;
+}
+
+/* TABLO – SIKIŞIK */
+.pc-table th,
+.pc-table td{
+  padding:4px 6px;          /* EN KRİTİK KISIM */
+  font-size:13px;
+}
+
+/* TABLO BAŞLIĞI */
+.pc-table th{
+  font-weight:normal;
+}
+
+/* BUTONLAR */
+button{
+  font-size:12px;
+  padding:2px 6px;
+}
+
