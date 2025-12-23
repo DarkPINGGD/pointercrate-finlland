@@ -1,10 +1,9 @@
 {
-  "adminPassword": "1234",
+  "adminPassword": "admin123",
   "levels": [
-    { "rank": 1, "name": "Tidal Wave", "publisher": "OniLink" },
-    { "rank": 2, "name": "Acheron", "publisher": "Ryamu" },
-    { "rank": 3, "name": "Avernus", "publisher": "Bo" },
-    { "rank": 4, "name": "Slaughterhouse", "publisher": "IcedCave" }
+    { "rank": 1, "name": "Tidal Wave", "points": 100, "archived": false },
+    { "rank": 2, "name": "Acheron", "points": 97, "archived": false },
+    { "rank": 3, "name": "Silent Clubstep", "points": 95, "archived": false }
   ],
   "records": []
 }
