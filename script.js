@@ -20,3 +20,8 @@ function submit(){
   .then(r=>r.json())
   .then(d=>alert(d.success?"Submitted":"Error"));
 }
+function formatVictors(v){
+  return v.map(name =>
+    `<a href="player.html?name=${encodeURIComponent(name)}">${name}</a>`
+  ).join(", ");
+}
