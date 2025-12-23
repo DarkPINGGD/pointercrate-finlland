@@ -1,31 +1,17 @@
-fetch("/api/list")
-  .then(r => r.json())
-  .then(data => {
-    const table = document.getElementById("list");
-    data.levels.forEach(l => {
-      let cls = "";
-      if (l.rank === 1) cls = "rank1";
-      if (l.rank === 2) cls = "rank2";
-      if (l.rank === 3) cls = "rank3";
+let last = 0;
 
-      table.innerHTML += `
-        <tr class="${cls}">
-          <td>#${l.rank}</td>
-          <td>${l.name}</td>
-          <td>${l.publisher}</td>
-          <td>${Math.max(5, Math.round(100 - (l.rank - 1) * 1.3))}</td>
-        </tr>
-      `;
-    });
-  });
+function submit(){
+  if(Date.now()-last<5000){ alert("Wait 5 seconds"); return; }
+  last = Date.now();
 
-function submit() {
-  fetch("/api/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      player: player.value,
-      level: level.value
+  fetch("/api/submit",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      player:player.value,
+      country:country.value,
+      level:level.value,
+      video:video.value
     })
-  }).then(() => alert("Record admin onayına gönderildi"));
+  }).then(r=>alert("Submitted for review"));
 }
