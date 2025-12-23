@@ -1,76 +1,72 @@
 body{
   margin:0;
-  font-family:Arial;
-  background:#111;
-  color:#eee;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#e5e5e5;
+  color:#000;
+  font-size:14px;
 }
 
-.center{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+a{
+  color:#0645ad;
+  text-decoration:none;
 }
 
-.login-box{
-  background:#1a1a1a;
-  padding:30px;
-  width:300px;
-  border:1px solid #333;
+a:hover{
+  text-decoration:underline;
 }
 
-input,button{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  background:#222;
-  color:white;
-  border:1px solid #333;
+/* CONTAINER */
+.pc-container{
+  width:1100px;
+  margin:20px auto;
 }
 
-button{
-  cursor:pointer;
+/* HEADER */
+h1{
+  font-size:26px;
+  font-weight:normal;
+  margin:10px 0 20px 0;
 }
 
-table{
+/* TABLE */
+.pc-table{
   width:100%;
   border-collapse:collapse;
+  background:white;
 }
 
-th,td{
-  padding:10px;
-  border-bottom:1px solid #333;
-}
-/* ADMIN LOGIN – SOL KÖŞE & BÜYÜK */
-
-.admin-login{
-  display:flex;
-  align-items:flex-start;
-  justify-content:flex-start;
-  padding:60px;
-  height:100vh;
-  background:#111;
+.pc-table th{
+  background:#dcdcdc;
+  border:1px solid #aaa;
+  padding:6px;
+  font-weight:normal;
+  text-align:left;
 }
 
-.admin-login .login-box{
-  width:420px;              /* DAHA BÜYÜK */
-  padding:40px;
-  background:#1a1a1a;
-  border:1px solid #333;
+.pc-table td{
+  border:1px solid #ccc;
+  padding:6px;
 }
 
-.admin-login h1{
-  font-size:28px;
-  margin-bottom:20px;
+/* ROW HOVER */
+.pc-table tr:hover td{
+  background:#f2f2f2;
 }
 
-.admin-login input{
-  font-size:16px;
-  padding:14px;
+/* ADMIN BUTTONS */
+button{
+  font-size:12px;
+  padding:3px 6px;
 }
 
-.admin-login button{
-  font-size:16px;
-  padding:14px;
-  margin-top:15px;
+/* NAV */
+nav{
+  background:#cfcfcf;
+  padding:6px;
+  border-bottom:1px solid #aaa;
+}
+
+nav a{
+  margin-right:10px;
+  font-size:13px;
 }
