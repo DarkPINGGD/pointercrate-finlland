@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Player Profile</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 id="name"></h1>
+<ul id="records"></ul>
+
+<script>
+const name = new URLSearchParams(location.search).get("name");
+document.getElementById("name").textContent = name;
+
+fetch("/api/list")
+.then(r=>r.json())
+.then(data=>{
+  data.records.filter(r=>r.approved && r.player===name)
+  .forEach(r=>{
+    records.innerHTML += `<li>${r.level} – ${r.points} pts</li>`;
+  });
+});
+</script>
+</body>
+</html>
