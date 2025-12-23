@@ -326,6 +326,10 @@ a{
 .pc-table tr:nth-child(even) td{
   background:#f7fbff;
 }
+.level-cell{
+  font-weight:bold;
+  font-size:26px;
+}
 
 
 
