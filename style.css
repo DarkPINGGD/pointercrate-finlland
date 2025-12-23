@@ -401,6 +401,22 @@ a{
 .pc-table th{
   border-bottom:2px solid rgba(26,79,163,0.4);
 }
+/* ===== SOL BİLGİ PANELİ ===== */
+
+.info-panel{
+  position:fixed;
+  left:30px;
+  top:160px;
+  width:260px;
+  font-size:16px;
+  color:#1a3f6f;
+  line-height:1.6;
+}
+
+.info-panel h3{
+  font-size:20px;
+  margin-bottom:15px;
+}
 
 
 
