@@ -124,5 +124,56 @@ button{
   font-size:11px;
   color:#555;
 }
+/* ===== GENEL SAYFA DÜZENİ ===== */
+
+body{
+  display:flex;
+  justify-content:center;
+}
+
+.pc-wrapper{
+  width:95vw;              /* YANLAR BOŞ KALMASIN */
+  max-width:1400px;        /* ÇOK GENİŞ OLMASIN */
+  margin:30px auto;
+}
+
+/* ===== BAŞLIKLAR BAYA BÜYÜK ===== */
+
+h1{
+  text-align:center;
+  font-size:42px;          /* BAYA BÜYÜK */
+  margin:20px 0 30px 0;
+}
+
+h2{
+  text-align:center;
+  font-size:26px;
+  margin:15px 0;
+}
+
+/* ===== TABLO GENİŞ & OKUNAKLI ===== */
+
+.pc-table{
+  width:100%;
+  font-size:18px;          /* YAZILAR BÜYÜDÜ */
+}
+
+.pc-table th{
+  font-size:17px;
+  padding:10px;
+}
+
+.pc-table td{
+  padding:10px;
+}
+
+/* ===== PLAYER SAYFASI ORTALAMA ===== */
+
+#playerName{
+  text-align:center;
+  font-size:48px;
+  margin-bottom:30px;
+}
+
 
 
