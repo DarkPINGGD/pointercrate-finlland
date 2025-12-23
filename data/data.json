@@ -1,0 +1,10 @@
+{
+  "adminPassword": "1234",
+  "levels": [
+    { "rank": 1, "name": "Tidal Wave", "publisher": "OniLink" },
+    { "rank": 2, "name": "Acheron", "publisher": "Ryamu" },
+    { "rank": 3, "name": "Avernus", "publisher": "Bo" },
+    { "rank": 4, "name": "Slaughterhouse", "publisher": "IcedCave" }
+  ],
+  "records": []
+}
