@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+
+<div class="login-box">
+  <h1>Admin Login</h1>
+
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+
+  <p id="error"></p>
+</div>
+
+<script>
+function login(){
+  fetch("/api/login",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({password:password.value})
+  })
+  .then(r=>r.json())
+  .then(res=>{
+    if(res.ok){
+      localStorage.setItem("admin","true");
+      location.href="admin.html";
+    } else {
+      error.textContent="Wrong password";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
