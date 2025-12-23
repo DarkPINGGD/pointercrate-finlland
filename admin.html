@@ -2,76 +2,57 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin – Record Queue</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<title>Admin Dashboard</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div class="container">
+
+<script>
+if(!localStorage.getItem("admin")){
+  location.href="admin-login.html";
+}
+</script>
 
 <h1>Pending Records</h1>
 
-<input id="pass" placeholder="Admin password">
-
-<table id="queue">
-  <tr>
-    <th>Player</th>
-    <th>Country</th>
-    <th>Level</th>
-    <th>Rank</th>
-    <th>Points</th>
-    <th>Video</th>
-    <th>Action</th>
-  </tr>
+<table id="table">
+<tr>
+<th>Player</th>
+<th>Level</th>
+<th>Rank</th>
+<th>Points</th>
+<th>Video</th>
+<th>Action</th>
+</tr>
 </table>
-
-</div>
 
 <script>
 fetch("/api/list")
 .then(r=>r.json())
-.then(data=>{
-  data.records
-    .filter(r=>!r.approved)
-    .forEach((r,i)=>{
-      queue.innerHTML+=`
-        <tr>
-          <td>${r.player}</td>
-          <td>${r.country}</td>
-          <td>${r.level}</td>
-          <td>${r.rank}</td>
-          <td>${r.points}</td>
-          <td><a href="${r.video}" target="_blank">link</a></td>
-          <td>
-            <button onclick="approve(${i})">Approve</button>
-            <button onclick="reject(${i})">Reject</button>
-          </td>
-        </tr>`;
-    });
+.then(d=>{
+  d.records.filter(r=>!r.approved).forEach((r,i)=>{
+    table.innerHTML+=`
+    <tr>
+      <td>${r.player}</td>
+      <td>${r.level}</td>
+      <td>#${r.rank}</td>
+      <td>${r.points}</td>
+      <td><a href="${r.video}" target="_blank">link</a></td>
+      <td>
+        <button onclick="approve(${i})">✔</button>
+        <button onclick="reject(${i})">✖</button>
+      </td>
+    </tr>`;
+  });
 });
 
 function approve(i){
-  fetch("/api/approve",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      index:i,
-      password:pass.value
-    })
-  }).then(()=>location.reload());
+  fetch("/api/approve",{method:"POST",body:JSON.stringify({i})})
+  .then(()=>location.reload());
 }
-
 function reject(i){
-  fetch("/api/reject",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      index:i,
-      password:pass.value
-    })
-  }).then(()=>location.reload());
+  fetch("/api/reject",{method:"POST",body:JSON.stringify({i})})
+  .then(()=>location.reload());
 }
 </script>
 
