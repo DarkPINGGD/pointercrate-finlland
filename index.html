@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<body>
 <div class="container">
 
 <h1>Extreme Demon List</h1>
@@ -21,7 +20,7 @@
   <tr>
     <th class="rank">#</th>
     <th>Level</th>
-    <th>Points</th>
+    <th class="points">Points</th>
   </tr>
 </table>
 
@@ -42,14 +41,13 @@ fetch("/api/list")
     .forEach(l => {
       list.innerHTML += `
         <tr>
-          <td class="rank">#${l.rank}</td>
+          <td class="rank">${l.rank}</td>
           <td>${l.name}</td>
-          <td>${calc(l.rank)}</td>
+          <td class="points">${calc(l.rank)}</td>
         </tr>`;
     });
 });
 </script>
-</body>
 
 </body>
 </html>
