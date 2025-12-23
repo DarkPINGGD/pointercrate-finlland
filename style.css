@@ -362,6 +362,27 @@ a{
 .layout{
   grid-template-columns: 260px 1fr 260px;
 }
+/* ===== SAĞ ÜST BÜYÜK NAV ===== */
+
+.top-nav{
+  position:fixed;
+  top:30px;
+  right:40px;
+  z-index:1000;
+}
+
+.top-nav a{
+  margin-left:28px;
+  font-size:26px;          /* KOCAMAN */
+  font-weight:600;
+  color:#1a4fa3;
+  text-decoration:none;
+  letter-spacing:1px;
+}
+
+.top-nav a:hover{
+  text-decoration:underline;
+}
 
 
 
