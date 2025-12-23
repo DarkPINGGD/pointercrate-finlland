@@ -229,6 +229,84 @@ h2{
 .sub{
   font-size:15px;          /* O DA OKUNAKLI */
 }
+/* ===== FINAL SCALE + AÇIK MAVİ TEMA ===== */
+
+/* ARKA PLAN */
+body{
+  background:#eaf4ff;              /* AÇIK MAVİ */
+}
+
+/* ANA ALAN */
+.pc-wrapper{
+  width:99vw;                      /* NEREDEYSE TAM */
+  max-width:1700px;
+  margin:50px auto;
+}
+
+/* BAŞLIKLAR – BİR TIK DAHA BÜYÜK */
+
+h1{
+  font-size:62px;                  /* +1 TIK */
+  margin:35px 0 45px 0;
+  text-align:center;
+}
+
+h2{
+  font-size:36px;
+  margin:30px 0;
+  text-align:center;
+}
+
+/* PLAYER SAYFASI İSMİ */
+
+#playerName{
+  font-size:70px;                  /* NET BÜYÜME */
+  margin-bottom:45px;
+  text-align:center;
+}
+
+/* TABLO GENEL */
+
+.pc-table{
+  width:100%;
+  font-size:24px;                  /* TABLO YAZILARI DAHA BÜYÜK */
+  background:white;
+}
+
+/* TABLO BAŞLIKLARI */
+
+.pc-table th{
+  font-size:23px;
+  padding:16px 14px;
+  background:#dbeeff;              /* AÇIK MAVİ BAŞLIK */
+  border:1px solid #b5d4f0;
+}
+
+/* TABLO SATIRLARI */
+
+.pc-table td{
+  padding:16px 14px;
+  border:1px solid #c9def3;
+}
+
+/* SATIR HOVER */
+
+.pc-table tr:hover td{
+  background:#f2f8ff;
+}
+
+/* ALT YAZILAR */
+
+.sub{
+  font-size:16px;
+  color:#4a6fa5;
+}
+
+/* LINKLER */
+
+a{
+  color:#1a4fa3;
+}
 
 
 
