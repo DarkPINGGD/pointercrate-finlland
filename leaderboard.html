@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>Extreme Demon Leaderboard</header>
+
+<table id="lb">
+  <tr>
+    <th>Rank</th>
+    <th>Player</th>
+    <th>Total Points</th>
+  </tr>
+</table>
+
+<script>
+fetch("/api/list")
+.then(r => r.json())
+.then(data => {
+  const scores = {};
+
+  data.records
+    .filter(r => r.approved)
+    .forEach(r => {
+      scores[r.player] = (scores[r.player] || 0) + r.points;
+    });
+
+  const sorted = Object.entries(scores)
+    .sort((a,b) => b[1] - a[1]);
+
+  const table = document.getElementById("lb");
+
+  sorted.forEach((p,i) => {
+    table.innerHTML += `
+      <tr>
+        <td>#${i + 1}</td>
+        <td>${p[0]}</td>
+        <td>${p[1]}</td>
+      </tr>
+    `;
+  });
+});
+</script>
+
+</body>
+</html>
