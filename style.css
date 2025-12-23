@@ -4,34 +4,35 @@
 
 body {
   margin: 0;
-  background: #f4f4f4;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #111;
+  background: #eeeeee;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #222;
+  font-size: 13px;
 }
 
 .container {
-  max-width: 1100px;
-  margin: 40px auto;
+  max-width: 1150px;
+  margin: 30px auto;
   background: #ffffff;
-  padding: 25px 30px;
-  border: 1px solid #ddd;
+  border: 1px solid #cfcfcf;
+  padding: 18px 22px;
 }
 
 h1 {
-  margin-top: 0;
-  font-size: 26px;
+  margin: 0 0 10px 0;
+  font-size: 22px;
   font-weight: 600;
 }
 
 nav {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 nav a {
-  margin-right: 15px;
+  margin-right: 14px;
+  color: #1a5fb4;
   text-decoration: none;
-  color: #0066cc;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 nav a:hover {
@@ -41,40 +42,58 @@ nav a:hover {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
-  font-size: 14px;
+  margin-top: 8px;
 }
 
 th {
-  text-align: left;
-  padding: 8px;
-  border-bottom: 2px solid #ccc;
   font-weight: 600;
+  font-size: 12px;
+  color: #333;
+  padding: 6px 8px;
+  border-bottom: 2px solid #bdbdbd;
 }
 
 td {
-  padding: 8px;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 6px 8px;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 tr:hover {
-  background: #f8f8f8;
+  background: #f3f3f3;
 }
 
 .rank {
-  width: 70px;
-  font-weight: bold;
+  width: 55px;
+  text-align: right;
+  font-weight: 600;
+  color: #000;
+}
+
+.points {
+  width: 80px;
+  text-align: right;
 }
 
 input {
-  width: 300px;
-  padding: 6px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  width: 260px;
+  padding: 5px;
+  font-size: 13px;
+  border: 1px solid #aaa;
+  margin-bottom: 6px;
 }
 
 button {
-  padding: 6px 14px;
-  font-size: 14px;
-  border: 1px
+  padding: 4px 12px;
+  font-size: 13px;
+  border: 1px solid #999;
+  background: #e6e6e6;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #dcdcdc;
+}
+
+a {
+  color: #1a5fb4;
+}
