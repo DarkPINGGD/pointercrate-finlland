@@ -383,6 +383,24 @@ a{
 .top-nav a:hover{
   text-decoration:underline;
 }
+/* ===== ŞEFFAF AYRAÇ ÇİZGİLER ===== */
+
+.pc-table{
+  border-collapse:collapse;
+}
+
+.pc-table th,
+.pc-table td{
+  border-bottom:1px solid rgba(26,79,163,0.25); /* ŞEFFAF MAVİ */
+  border-left:none;
+  border-right:none;
+  border-top:none;
+}
+
+/* Başlık altı çizgi biraz daha belirgin */
+.pc-table th{
+  border-bottom:2px solid rgba(26,79,163,0.4);
+}
 
 
 
