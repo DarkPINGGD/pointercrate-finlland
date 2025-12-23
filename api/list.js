@@ -1,8 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-export default function handler(req, res) {
-  const filePath = path.join(process.cwd(), "data/data.json");
-  const data = JSON.parse(fs.readFileSync(filePath));
-  res.status(200).json(data);
+export default function(req,res){
+  const file = path.join(process.cwd(),"data/data.json");
+  res.json(JSON.parse(fs.readFileSync(file)));
 }
