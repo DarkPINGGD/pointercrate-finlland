@@ -6,37 +6,50 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<body>
+<div class="container">
 
 <h1>Extreme Demon List</h1>
 
+<nav>
+  <a href="index.html">List</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="submit.html">Submit Record</a>
+</nav>
+
 <table id="list">
-<tr><th>Rank</th><th>Level</th><th>Points</th></tr>
+  <tr>
+    <th class="rank">#</th>
+    <th>Level</th>
+    <th>Points</th>
+  </tr>
 </table>
 
-<a href="submit.html">Submit</a> |
-<a href="leaderboard.html">Leaderboard</a>
+</div>
 
 <script>
 function calc(rank){
-  return rank>150?0:Math.round(Math.pow(1-(rank-1)/150,2)*100);
+  return rank > 150 ? 0 :
+    Math.round(Math.pow(1 - (rank - 1) / 150, 2) * 100);
 }
 
 fetch("/api/list")
-.then(r=>r.json())
-.then(data=>{
+.then(r => r.json())
+.then(data => {
   data.levels
-  .filter(l=>!l.archived)
-  .sort((a,b)=>a.rank-b.rank)
-  .forEach(l=>{
-    list.innerHTML+=`
-      <tr>
-        <td>#${l.rank}</td>
-        <td>${l.name}</td>
-        <td>${calc(l.rank)}</td>
-      </tr>`;
-  });
+    .filter(l => !l.archived)
+    .sort((a,b)=>a.rank-b.rank)
+    .forEach(l => {
+      list.innerHTML += `
+        <tr>
+          <td class="rank">#${l.rank}</td>
+          <td>${l.name}</td>
+          <td>${calc(l.rank)}</td>
+        </tr>`;
+    });
 });
 </script>
+</body>
 
 </body>
 </html>
