@@ -335,6 +335,13 @@ a{
   color:#1a4fa3;
   font-size:26px;
 }
+.pc-table td a{
+  font-weight:500;
+}
+
+.pc-table td a:hover{
+  text-decoration:underline;
+}
 
 
 
