@@ -1,20 +1,14 @@
 import fs from "fs";
 import path from "path";
 
-export default function handler(req, res) {
-  const { index, password } = req.body;
+export default function(req,res){
+  const file = path.join(process.cwd(),"data/data.json");
+  const data = JSON.parse(fs.readFileSync(file));
 
-  const filePath = path.join(process.cwd(), "data/data.json");
-  const data = JSON.parse(fs.readFileSync(filePath));
+  if(req.body.password!==data.adminPassword)
+    return res.status(401).end();
 
-  if (password !== data.adminPassword) {
-    return res.status(401).json({ error: "Wrong password" });
-  }
-
-  if (data.records[index]) {
-    data.records[index].approved = true;
-  }
-
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-  res.status(200).json({ success: true });
+  data.records[req.body.index].approved = true;
+  fs.writeFileSync(file,JSON.stringify(data,null,2));
+  res.end();
 }
