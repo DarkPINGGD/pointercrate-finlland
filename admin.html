@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>Admin Panel</header>
+
+<section style="width:92%;margin:auto">
+  <input id="pass" type="password" placeholder="Admin password">
+  <ul id="records"></ul>
+</section>
+
+<script>
+let adminPass = "";
+
+pass.oninput = () => adminPass = pass.value;
+
+fetch("/api/list")
+.then(r => r.json())
+.then(data => {
+  data.records.forEach((r, i) => {
+    if (!r.approved) {
+      records.innerHTML += `
+        <li>
+          ${r.player} - ${r.level} (${r.points} pts)
+          <button onclick="approve(${i})">Approve</button>
+        </li>
+      `;
+    }
+  });
+});
+
+function approve(i) {
+  fetch("/api/approve", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      index: i,
+      password: adminPass
+    })
+  }).then(r => {
+    if (!r.ok) alert("Wrong password");
+    else location.reload();
+  });
+}
+</script>
+
+</body>
+</html>
