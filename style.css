@@ -359,6 +359,9 @@ a{
   font-size:20px;
   margin-bottom:15px;
 }
+.layout{
+  grid-template-columns: 260px 1fr 260px;
+}
 
 
 
