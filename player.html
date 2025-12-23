@@ -4,31 +4,47 @@
 <meta charset="UTF-8">
 <title>Player</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<h1 id="name"></h1>
-<ul id="list"></ul>
-<p id="total"></p>
+<div class="pc-wrapper">
+  <h1 id="playerName"></h1>
+
+  <table class="pc-table">
+    <tr>
+      <th>Level</th>
+      <th>Rank</th>
+      <th>Points</th>
+      <th>Video</th>
+    </tr>
+  </table>
+</div>
 
 <script>
-const name=new URLSearchParams(location.search).get("name");
-document.getElementById("name").textContent=name;
+const params = new URLSearchParams(window.location.search);
+const player = params.get("name");
 
-let total=0;
+document.getElementById("playerName").textContent = player;
 
 fetch("/api/list")
 .then(r=>r.json())
 .then(data=>{
-  data.records
-  .filter(r=>r.approved && r.player===name)
-  .forEach(r=>{
-    total+=r.points;
-    list.innerHTML+=`<li>#${r.rank} ${r.level} (${r.points} pts)</li>`;
+  const table = document.querySelector(".pc-table");
+
+  data.records.forEach(l=>{
+    if(l.victors && l.victors.includes(player)){
+      table.innerHTML += `
+        <tr>
+          <td>${l.name}</td>
+          <td>#${l.rank}</td>
+          <td>${l.points.toFixed(2)}</td>
+          <td><a href="${l.video}" target="_blank">link</a></td>
+        </tr>
+      `;
+    }
   });
-  total.textContent="Total Points: "+total;
 });
 </script>
+
 </body>
 </html>
