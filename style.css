@@ -342,6 +342,23 @@ a{
 .pc-table td a:hover{
   text-decoration:underline;
 }
+.layout{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap:30px;
+  max-width:1800px;
+  margin:0 auto;
+}
+
+.sidebar{
+  font-size:15px;
+  color:#1a3f6f;
+}
+
+.sidebar h3{
+  font-size:20px;
+  margin-bottom:15px;
+}
 
 
 
